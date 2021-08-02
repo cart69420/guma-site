@@ -1,0 +1,45 @@
+<html>
+    <title>sex</title>
+    <body>
+        <p1>poop sex client searcher site</p1>
+
+        <form>
+            <input type="text" id="sex" value="" placeholder="client name here...">
+            <button type="button" onclick="search(document.getElementById('sex').value)">search</button>
+            <button onclick="javascript:history.go(0)">clear</button>
+            <p id="found">Clients found:<br></p>
+            <script>
+                var clients = ["phobos", "hyperlethal", "leuxbackdoor", "wurstplus2", "wp2", "wp3", "phoboss", "kamiblue", "impact", "meteor"]
+                var hrefs = {
+                    kamiblue: 'https://kamiblue.org',
+                    impact: 'https://impactclient.net/',
+                    meteor: 'https://meteorclient.com/'
+                }
+                var results = []
+                var anal = '\n'
+                function search(value) {
+                    clients.forEach(client => {
+                        if(client.includes(value.toLowerCase())) {
+                            results.push(client)
+                        }
+                    })
+                    if(results.length <=0) return alert('No clients found.') 
+                    else {
+                        results.forEach(a => {
+                            if(hrefs[a]) anal += '<a href=' + hrefs[a] + ' target="_blank"' + '>' + a + '</a><br>'
+                            else {
+                                anal += a + '<br>'   
+                            }
+                        })
+                        document.getElementById('found').innerHTML += anal
+
+                        results = []
+                        anal = ''
+                        //alert(anal)
+                    }
+                }
+            </script>
+
+        </form>
+    </body>
+</html>
